@@ -2,7 +2,7 @@
 % Visualization of spring stiffness
 
 % Initialization
-clf, hold off, clear
+clf, hold off, clear, clc
 
 % Assignment of constant design parameter values
 springparams1;
@@ -15,34 +15,34 @@ for j=1:1:length(d)
 %   Analysis of valve spring.
     [svol,smass,bvol,matc,manc,Lmin,L2,k,F1,F2,Tau1,Tau2,freq1]=...
     springanalysis1(D(i),d(j),L0,L1,n,E,G,rho,Dv,h,p1,p2,nm,ncamfac,nne,matp,bldp);
-    funk(j,i) = k;    
+    funk(j,i) = freq1;
   end
 end
 
 % Contour plot of spring stiffness k
 subplot(221)
-contour(D, d, funk, [500 1000 2000 5000 10000 20000 50000 100000], "ShowText","on")
-xlabel('D (m)'), ylabel('d (m)'), title('Contours of spring stiffness(N/m)')
+contour(D, d, funk, "ShowText","on")
+xlabel('D (m)'), ylabel('d (m)'), title('Contours of First eigenfrequency of spring (Hz)')
 grid
 
 % Plot of spring stiffness for constant d(1) = 0.002 
 subplot(222)
 plot(D, funk(1,:))
-xlabel('D (m)'), ylabel('Spring stiffness (N/m)'), ...
+xlabel('D (m)'), ylabel('First eigenfrequency of spring (Hz)'), ...
    title('Wire diameter 0.002(m)') 
 grid
 
 %Plot of spring stiffness for constant D(1) = 0.02(m) 
 subplot(223)
 plot(d, funk(:,1))
-xlabel('d (m)'), ylabel('Spring stiffness (N/m)'), ...
+xlabel('d (m)'), ylabel('First eigenfrequency of spring (Hz)'), ...
    title('Coil diameter 0.02 (m)') 
 grid
 
 %Plot of spring stiffness for constant D(21) = 0.04(m) 
 subplot(224)
 plot(d, funk(:,21))
-xlabel('d (m)'), ylabel('Spring stiffness (N/m)'), ...
+xlabel('d (m)'), ylabel('First eigenfrequency of spring (Hz)'), ...
    title('Coil diameter 0.04 (m)') 
 grid
 
