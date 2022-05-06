@@ -6,7 +6,7 @@ springparams1;
 
 % Assignment of unconstant design parameter values
 Tau12max = 600e6;
-Freq1lb = 400;
+Freq1lb = 166;
 
 % Matrix of output values for combinations of design variables D and d 
 D = [0.020:0.001:0.040];
@@ -111,7 +111,7 @@ contour(D, d, c2, -0.02*[1 2 3], 'm-')
 contour(D, d, c3, -0.02*[1 2 3], 'c--')
 contour(D, d, c4, -0.01*[1 2 3], 'r--')
 contour(D, d, c5, -0.01*[1 2 3], 'g--')
-legend('mass (kg)', 'L_{min}', 'F_{1, min}', 'F_{2, min}', '\tau _{1,2, max}', 'Freq_{1, lb}', 'feasble region')
+legend('mass (kg)', 'L_{min}', 'F_{1, min}', 'F_{2, min}', '\tau _{1,2, max}', 'Freq_{1, lb}', 'feasible region')
 xlabel('D (m)'), ylabel('d (m)'), title('      Contours of objective function (kg)')
 grid
 
