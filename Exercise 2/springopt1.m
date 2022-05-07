@@ -6,7 +6,7 @@ springparams1;
 
 % Assignment of unconstant design parameter values
 Tau12max = 600e6;
-Freq1lb = 166;
+Freq1lb = nm*ncamfac/2;
 
 % Matrix of output values for combinations of design variables D and d 
 D = [0.020:0.001:0.040];
@@ -44,8 +44,8 @@ m2 = contour(D, d, c1, -0.04*[1 2 3], 'b--');
 % fill(x,y,'b', FaceAlpha=0.1, LineStyle='none')
 
 % contour(D, d, c1, -0.05*[1 2 3], 'b--')
-legend('mass (kg)', 'L_{min}')
-xlabel('D (m)'), ylabel('d (m)'), title('      Contours of objective function (kg)')
+legend('mass (kg)', 'L_{min} (m)')
+xlabel('D (m)'), ylabel('d (m)'), title('Minimum spring length')
 grid
 
 % Contour of objective and constraint 2
@@ -54,8 +54,8 @@ hold on
 contour(D, d, funk, [0.1 0.08 0.06 0.04 0.02], '-', "ShowText","on")
 contour(D, d, c2, [0 0], 'm--', LineWidth=1)
 contour(D, d, c2, -0.2*[1 2 3], 'm--')
-legend('mass (kg)', 'F_{1, min}')
-xlabel('D (m)'), ylabel('d (m)'), title('      Contours of objective function (kg)')
+legend('mass (kg)', 'F_{1, min} (N)')
+xlabel('D (m)'), ylabel('d (m)'), title('Minimum Force in closed position (N)')
 grid
 
 % Contour of objective and constraint 3
@@ -65,18 +65,18 @@ contour(D, d, funk, [0.1 0.08 0.06 0.04 0.02], '-', "ShowText","on")
 contour(D, d, c3, [0 0], 'c--', LineWidth=1)
 contour(D, d, c3, -0.2*[1 2 3], 'c--')
 % contour(D, d, c3a, 'r-', 'ShowText',	'on')
-legend('mass (kg)', 'F_{2, min}')
-xlabel('D (m)'), ylabel('d (m)'), title('      Contours of objective function (kg)')
+legend('mass (kg)', 'F_{2, min} (N)')
+xlabel('D (m)'), ylabel('d (m)'), title('Minimum Force in open position')
 grid
 
 % Contour of objective and constraint 4
 subplot(234)
 hold on
-contour(D, d, funk, [0.1 0.08 0.06 0.04 0.02], '-', "ShowText","on")
+contour(D, d, funk, [0.1 0.08 0.06 0.04 0.02], '-', ShowText="on")
 contour(D, d, c4, [0 0], 'r--', LineWidth=1)
 contour(D, d, c4, -0.1*[1 2 3], 'r--')
-legend('mass (kg)', '\tau _{1,2, max}')
-xlabel('D (m)'), ylabel('d (m)'), title('      Contours of objective function (kg)')
+legend('mass (kg)', '\tau _{1,2, max} (Pa)')
+xlabel('D (m)'), ylabel('d (m)'), title('Maximum shear stress')
 grid
 
 % Contour of objective and constraint 5
@@ -85,8 +85,8 @@ hold on
 contour(D, d, funk, [0.1 0.08 0.06 0.04 0.02], '-', "ShowText","on")
 contour(D, d, c5, [0 0], 'g--', LineWidth=1)
 contour(D, d, c5, -0.1*[1 2 3], 'g--')
-legend('mass (kg)', 'Freq_{1, lb}')
-xlabel('D (m)'), ylabel('d (m)'), title('      Contours of objective function (kg)')
+legend('mass (kg)', 'Freq_{1, lb} (Hz)')
+xlabel('D (m)'), ylabel('d (m)'), title('Lowest eigenfrequency')
 grid
 
 
@@ -106,13 +106,13 @@ contour(D, d, c5, [0 0], 'g--', LineWidth=1)
 
 fill([x1 x2 x3],[y1 y2 y3],'r', FaceAlpha=0.1, LineStyle='none')
 
-contour(D, d, c1, -0.005*[1 2 3], 'b--')
-contour(D, d, c2, -0.02*[1 2 3], 'm-')
-contour(D, d, c3, -0.02*[1 2 3], 'c--')
-contour(D, d, c4, -0.01*[1 2 3], 'r--')
-contour(D, d, c5, -0.01*[1 2 3], 'g--')
+contour(D, d, c1, -0.005*[1 2], 'b--')
+contour(D, d, c2, -0.02*[1 2], 'm-')
+contour(D, d, c3, -0.02*[1 2], 'c--')
+contour(D, d, c4, -0.01*[1 2], 'r--')
+contour(D, d, c5, -0.01*[1 2], 'g--')
 legend('mass (kg)', 'L_{min}', 'F_{1, min}', 'F_{2, min}', '\tau _{1,2, max}', 'Freq_{1, lb}', 'feasible region')
-xlabel('D (m)'), ylabel('d (m)'), title('      Contours of objective function (kg)')
+xlabel('D (m)'), ylabel('d (m)'), title('Contours of feasible region')
 grid
 
 
