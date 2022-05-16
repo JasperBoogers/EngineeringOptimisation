@@ -1,12 +1,12 @@
-function f = springobjw3(alpha,xq,sq,ktarget,frtarget,w)
-% Two variable valve spring problem - Exercise 3
+function f = springobjw4(alpha,xq,sq,ktarget,frtarget,w);
+% Two variable valve spring problem - Exercise 4 
 % Scaled objective function for line search 
 % involving both spring stiffness and lowest eigenfrequency. 
 
 % Input:
 %  Design variable:
 %   alpha    : [1x1] scalar step size variable
-%  Fixed parameters (apart from the constant parameters read from sprinp1).
+%  Fixed parameters (apart from the constant parameters read from sprinp2).
 %   xq       : current design point q (xq represents [Dq dq]')
 %   sq       : search direction in point q (sq represents [sDq sdq]')
 %   Usage:
@@ -18,7 +18,7 @@ function f = springobjw3(alpha,xq,sq,ktarget,frtarget,w)
 % Output:
 %   f  : {1x1] scalar of objective function value, defined as:
 %
-%   f = abs((k - ktarget)/ktarget) + w*abs((freq1 - frtarget)/frtarget)
+%   f = ((k - ktarget)/ktarget)^2 + w*((freq1 - frtarget)/frtarget)^2
 %
 % Note: the objective function components are scaled around the
 %       respective target values.
@@ -35,6 +35,6 @@ springparams1;
     springanalysis1(D,d,L0,L1,n,E,G,rho,Dv,h,p1,p2,nm,ncamfac,nne,matp,bldp);
  
  % Scaled objective function
-   f = abs((k - ktarget)/ktarget) + w*abs((freq1 - frtarget)/frtarget);
+   f = ((k - ktarget)/ktarget)^2 + w*((freq1 - frtarget)/frtarget)^2;
     
-end 
+%end 

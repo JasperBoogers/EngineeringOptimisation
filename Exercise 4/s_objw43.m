@@ -1,16 +1,12 @@
-function f = springobjw3(alpha,xq,sq,ktarget,frtarget,w)
-% Two variable valve spring problem - Exercise 3
-% Scaled objective function for line search 
+function f = s_objw43(x,ktarget,frtarget,w);
+% Two variable valve spring problem - Exercise 4 
+% Scaled objective function for two variable problem 
 % involving both spring stiffness and lowest eigenfrequency. 
 
 % Input:
-%  Design variable:
-%   alpha    : [1x1] scalar step size variable
+%  Design variables:
+%   x        : [1x2] design vector (x represents [D d].
 %  Fixed parameters (apart from the constant parameters read from sprinp1).
-%   xq       : current design point q (xq represents [Dq dq]')
-%   sq       : search direction in point q (sq represents [sDq sdq]')
-%   Usage:
-%       design point x = [D d]' = xq = alpha*sq
 %   ktarget  : target value for spring stiffness.
 %   frtarget : target value for lowest eigenfrequency.
 %   w        : weighing factor between objective function components.
@@ -18,14 +14,14 @@ function f = springobjw3(alpha,xq,sq,ktarget,frtarget,w)
 % Output:
 %   f  : {1x1] scalar of objective function value, defined as:
 %
-%   f = abs((k - ktarget)/ktarget) + w*abs((freq1 - frtarget)/frtarget)
+%   f = ((k - ktarget)/ktarget)^2 + w*((freq1 - frtarget)/frtarget)^2
 %
 % Note: the objective function components are scaled around the
 %       respective target values.
 
-% Computation of design point:
-D = xq(1) + alpha*sq(1);
-d = xq(2) + alpha*sq(2);
+% Design point:
+D = x(1);
+d = x(2);
 
 % Constant parameter values
 springparams1;
@@ -35,6 +31,6 @@ springparams1;
     springanalysis1(D,d,L0,L1,n,E,G,rho,Dv,h,p1,p2,nm,ncamfac,nne,matp,bldp);
  
  % Scaled objective function
-   f = abs((k - ktarget)/ktarget) + w*abs((freq1 - frtarget)/frtarget);
+   f = ((k - ktarget)/ktarget)^2 + w*((freq1 - frtarget)/frtarget)^2;
     
-end 
+%end 
