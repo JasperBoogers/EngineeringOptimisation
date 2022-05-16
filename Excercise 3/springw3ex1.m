@@ -6,7 +6,7 @@
 clf, hold off, clear
 
 % Constant parameter values
-sprinparams1;
+springparams1;
 w=1;
 ktarget=10000; 
 frtarget=300;
@@ -29,12 +29,25 @@ end
 % Contour plot of scaled spring optimization problem
 %contour(D, d, fobj,[0:0.05:0.2 0.2:0.1:0.5 0.5:0.5:2 2:5:100])
 cc = [0.01 0.02 0.05];
-contour(D, d, fobj,[cc 10*cc 100*cc 1000*cc 10000*cc 100000*cc 1000000*cc])
+contour(D, d, fobj,[cc 10*cc 100*cc 1000*cc 10000*cc 100000*cc 1000000*cc], "ShowText","on")
 xlabel('Coil diameter D (m)'), ylabel('Wire diameter d (m)'), ...
    title('Figure 1: Spring stiffness and frequency optimization problem for w = 1.0')
 hold on
-contour(D,d,stiffness,[10000 10000])
-contour(D,d,freq,[300 300])
+contour(D,d,stiffness,[10000 10000], 'r--')
+contour(D,d,freq,[300 300], 'g-.')
+legend('fobj', ' stiffness', ' freq')
 grid
+
+x_q = [0.022 0.004];
+
+a = 4;
+S_q1 = a*[0.002 0.0];
+S_q2 = a*[0.0 -0.0005];
+S_q3 = a*[0.002 -0.0005];
+
+plot(x_q(1), x_q(2), 'k*')
+line([x_q(1) x_q(1)+S_q1(1)], [x_q(2) x_q(2)+S_q1(2)]);
+line([x_q(1) x_q(1)+S_q2(1)], [x_q(2) x_q(2)+S_q2(2)]);
+line([x_q(1) x_q(1)+S_q3(1)], [x_q(2) x_q(2)+S_q3(2)]);
 
 %end 
