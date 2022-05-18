@@ -35,19 +35,20 @@ xlabel('Coil diameter D (m)'), ylabel('Wire diameter d (m)'), ...
 hold on
 contour(D,d,stiffness,[10000 10000], 'r--')
 contour(D,d,freq,[300 300], 'g-.')
-legend('fobj', ' stiffness', ' freq')
+
 grid
 
 x_q = [0.022 0.004];
 
 a = 4;
-S_q1 = a*[0.002 0.0];
+b=9;
+S_q1 = b*[0.002 0.0];
 S_q2 = a*[0.0 -0.0005];
 S_q3 = a*[0.002 -0.0005];
 
 plot(x_q(1), x_q(2), 'k*')
-line([x_q(1) x_q(1)+S_q1(1)], [x_q(2) x_q(2)+S_q1(2)]);
-line([x_q(1) x_q(1)+S_q2(1)], [x_q(2) x_q(2)+S_q2(2)]);
-line([x_q(1) x_q(1)+S_q3(1)], [x_q(2) x_q(2)+S_q3(2)]);
-
+line([x_q(1) x_q(1)+S_q1(1)], [x_q(2) x_q(2)+S_q1(2)], 'Color', 'blue');
+line([x_q(1) x_q(1)+S_q2(1)], [x_q(2) x_q(2)+S_q2(2)], 'Color', 'cyan');
+line([x_q(1) x_q(1)+S_q3(1)], [x_q(2) x_q(2)+S_q3(2)], 'Color', 'yellow');
+legend('fobj', ' stiffness', ' freq', 'x_q', 'S_{q1}', 'S_{q2}', 'S_{q2}')
 %end 
