@@ -31,6 +31,5 @@ springparams1;
     springanalysis1(D,d,L0,L1,n,E,G,rho,Dv,h,p1,p2,nm,ncamfac,nne,matp,bldp);
  
  % Scaled objective function
-   f = ((k - ktarget)/ktarget)^2 + w*((freq1 - frtarget)/frtarget)^2;
-    
-%end 
+   f = ((k - ktarget)/ktarget)^2 + w*((freq1 - frtarget)/frtarget)^2;    
+end 
