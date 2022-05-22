@@ -49,7 +49,9 @@ x0 = [0.022  0.0035];
 LB = [0.02 0.002];
 UB = [0.04 0.005];
 opt1 = optimset('Display', 'iter', 'HessUpdate', 'bfgs');
-opt2 = optimset('Display', 'iter', 'HessUpdate', 'steepdesc', 'MaxFunEval', 1e3);
+opt2 = optimset('Display', 'iter', 'HessUpdate', 'steepdesc', 'MaxFunEval', 1e4, DiffMinChange=1e-6);
+% opt2 = optimset('Display', 'iter', 'HessUpdate', 'steepdesc', 'MaxFunEval', 1e4, 'FiniteDifferenceStepSize', 1e-6);
+
 
 [x1, f1] = fminunc(@(x) s_objw43(x, ktarget, frtarget, w), x0, opt1);
 [x2, f2] = fminunc(@(x) s_objw43(x, ktarget, frtarget, w), x0, opt2);

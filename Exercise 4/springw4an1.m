@@ -42,6 +42,7 @@ hold on
 contour(D,d,stiffness,[10000 10000])
 contour(D,d,freq,[300 300])
 grid
+axis('equal')
 
 %end problem visualization
 
@@ -108,7 +109,7 @@ while again >= 1
     d = xnew(2);
 
     % Visualisation of line search in problem contour plot:
-    plot([xq(1) xnew(1)],[xq(2) xnew(2)],xnew(1),xnew(2),'o')
+    plot([xq(1) xnew(1)],[xq(2) xnew(2)],xnew(1),xnew(2),'o', LineWidth=2)
 
     % Update design point:
     xq = xnew;
@@ -116,7 +117,7 @@ while again >= 1
     % Continue optimization?
     again = input('  Another optimization cycle? (0: No  1: Yes):')
     if again == 0, return; end
-
+    drawnow
 end  % end optimization cycle (while-loop)
 
 %end
