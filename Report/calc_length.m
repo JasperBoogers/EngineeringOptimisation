@@ -1,7 +1,14 @@
-function [outputArg1,outputArg2] = angles2cartesian(inputArg1,inputArg2)
-%ANGLES2CARTESIAN Summary of this function goes here
-%   Detailed explanation goes here
-outputArg1 = inputArg1;
-outputArg2 = inputArg2;
+function [s,t] = calc_length(a, b, y)
+
+% load parameters
+load_param;
+
+eq = [sin(a) -sin(b);
+    cos(a) cos(b)];
+g = [y; ST];
+res = linsolve(eq,g);
+
+s = res(1);
+t = res(2);
 end
 

@@ -10,4 +10,3 @@ res = fsolve(f, x0);
 a = mod(res(1), 2*pi);
 b = mod(res(2), 2*pi);
 end
-
