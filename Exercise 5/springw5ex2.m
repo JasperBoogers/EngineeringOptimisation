@@ -2,7 +2,9 @@
 clf, hold off, clear
 
 % Design point for which gradients are computed 
-x = [0.020522 0.003520];
+% x = [0.020522 0.003520];
+% x = [0.02462 0.004035];
+x = [0.022251 0.004075];
 
 % Forward finite diffence gradients of objective function and constraints
 hxi = 1e-8;
@@ -22,9 +24,8 @@ dgdx1 = (gx1plush - gx)./hxi;
 dgdx2 = (gx2plush - gx)./hxi;
 
 % solve for lagrangian multipliers
-dg = [dgdx1(2:4); dgdx2(2:4)];
+dg = [dgdx1([1 4]); dgdx2([1 4])];
 df = [dfdx1; dfdx2];
 mu = linsolve(dg,-df);
-mu = [0; mu; 0];
 
  

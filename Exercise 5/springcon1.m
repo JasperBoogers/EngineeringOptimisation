@@ -24,7 +24,7 @@ Av = Dv^2*pi/4;
     
 % Scaled length constraint
 g(1) = Lmin/L2 - 1;
-    
+
 % Scaled lowest force constraint
 F1min = Av * p1;
 g(2) = 1 - F1/F1min;
@@ -40,5 +40,5 @@ g(4) = Tau2/Tau12max - 1;
 % Scaled frequency constraint
 freq1lb = ncamfac * nm/2;
 g(5) = 1 - freq1/freq1lb;
-% g(1)=str2double(num2str(g(1)));
-%end 
+g(1)=str2double(num2str(g(1)));
+end 

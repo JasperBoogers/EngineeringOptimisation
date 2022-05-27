@@ -12,6 +12,7 @@ clf, hold off, clear
 x = [0.024 0.004];  
 
 % Forward finite diffence gradients of objective function and constraints
+% hx = logspace(-10,-3,100);
 hx = logspace(-20,0,100); % vector of finite difference steps
 for i=1:1:length(hx)
 
