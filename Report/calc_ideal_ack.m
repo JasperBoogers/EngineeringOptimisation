@@ -5,7 +5,7 @@ clc; clear; clf;
 
 d_ack = 20;         % deg steering angle
 TW    = 1.330;      % track width
-WB_l  = 0.6895;      % wheel base left
+WB_l  = 0.6895;     % wheel base left
 WB_r  = 1.97;       % wheel base right
 D_w   = 0.43;       % wheel diameter
 
@@ -31,17 +31,17 @@ L = 10; % lengte stuur lijnen
 
 % rechts voor
 plot(wielpunten(1,1), wielpunten(2,1), 'k*') 
-line(wielpunten(1,1)+ D_w/2*sind(d_in)*[1 -1], wielpunten(2,1)+ D_w/2*cosd(d_in)*[1 -1], 'Linewidt', 2)
-line(wielpunten(1,1)+ L*sind(d_in+90)*[1 -1], wielpunten(2,1)+ L*cosd(d_in+90)*[1 -1])
+line(wielpunten(1,1)+ D_w/2*sind(d_in)*[1 -1], wielpunten(2,1)+ D_w/2*cosd(d_in)*[1 -1], 'Linewidth', 2)
+line(wielpunten(1,1)+ L*sind(d_in+90)*[1 -1],  wielpunten(2,1)+ L*cosd(d_in+90)*[1 -1])
 
 % links voor
 plot(wielpunten(1,2), wielpunten(2,2), 'k*') 
-line(wielpunten(1,2)+ D_w/2*sind(d_out)*[1 -1], wielpunten(2,2)+ D_w/2*cosd(d_out)*[1 -1], 'Linewidt', 2)
-line(wielpunten(1,2)+ L*sind(d_out+90)*[1 -1], wielpunten(2,2)+ L*cosd(d_out+90)*[1 -1])
+line(wielpunten(1,2)+ D_w/2*sind(d_out)*[1 -1], wielpunten(2,2)+ D_w/2*cosd(d_out)*[1 -1], 'Linewidth', 2)
+line(wielpunten(1,2)+ L*sind(d_out+90)*[1 -1],  wielpunten(2,2)+ L*cosd(d_out+90)*[1 -1])
 
 % achter
 plot(wielpunten(1,3), wielpunten(2,3), 'k*')
-line(wielpunten(1,3)+[0 0], wielpunten(2,3)+0.5*[D_w -D_w], 'Linewidt', 2)
+line(wielpunten(1,3)+[0 0], wielpunten(2,3)+0.5*[D_w -D_w], 'Linewidth', 2)
 line(wielpunten(1,3)+[-L L], wielpunten(2,3)+[0 0])
 
 axis('equal')
