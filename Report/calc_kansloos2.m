@@ -23,7 +23,7 @@ bp     = double(mod(S.bp, 2*pi))
 p2(1)  = double(S.p2x);
 
 
-[alpha1, beta1, s, t] = calc_angles(p2, p3, st);
+[alpha1, beta1] = calc_angles(p2, p3, st);
 
 
 figure(1); clf; hold on;

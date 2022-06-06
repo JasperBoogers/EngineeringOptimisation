@@ -2,7 +2,7 @@ function [s,t, alpha0, beta0, p2] = calc_length(p2, p3, d)
 
     % load parameters
     load_param;
-    % d, st 
+    % d, st
     
     % calculate lenths and initial angles
     syms a b p2x bp
@@ -12,7 +12,7 @@ function [s,t, alpha0, beta0, p2] = calc_length(p2, p3, d)
     % solve system of equations
         eq1 = ss*cos(a) + ts*cos(b) - p3(1);
         eq2 = ss*sin(a) + ts*sin(b) - p3(2);
-        eq3 = ss*cos(a-d) + ts*cos(bp) - p3(1) + st;
+        eq3 = ss*cos(a-d) + ts*cos(bp) - p3(1) - st; %dit minnetje is heel gaar
         eq4 = ss*sin(a-d) + ts*sin(bp) - p3(2);
     S = vpasolve([eq1,eq2,eq3,eq4],[a, b, p2x, bp]);
     
