@@ -5,7 +5,7 @@ r = 7.5;        % [m], turning radius
 % ST = 1.0;     % [m], horizontal distance between wheel attachment and rack-and-pinion attachment
 % x_t = 0.05;   % [m], rack-and-pinion displacement
 
-st     = 0.05;   % [m], maximal rack and pinion extension
+st     = 0.05;   % [m], maximum rack and pinion extension
 p3x_r  = 0.3;    % [m], rack and pinion attachment point x, rigth
 p3x_l  = 0.3;    % [m], rack and pinion attachment point x, left
 

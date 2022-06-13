@@ -21,8 +21,8 @@ p3l = [p3x_l, p3y_l];
 n = 5;
 st_f = linspace(0,1,n+2);
 st_f = st_f(2:end-1);
-[s_r, t_r, a0_r, b0_r, p2r] = calc_length(p2r, p3r, d_r_lt);
-[s_l, t_l, a0_l, b0_l, p2l] = calc_length(p2l, p3l, d_l_lt);
+[s_r, t_r, a0_r, b0_r, p2r] = calc_length(p2r, p3r, d_r_rt);
+[s_l, t_l, a0_l, b0_l, p2l] = calc_length(p2l, p3l, d_l_rt);
 a_r = [a0_r, zeros(1,n)];
 b_r = [b0_r, zeros(1,n)];
 a_l = [a0_l, zeros(1,n)];
@@ -36,7 +36,7 @@ end
 delta_r = abs(a_r(2:end) - a_r(1));
 delta_l = abs(a_l(2:end) - a_l(1));
 
-c = obj_func(delta_r, delta_l);
+c = obj_func(delta_r, delta_l, 'right');
 
 figure(1); clf;
 subplot(1,2,2); hold on;
@@ -55,4 +55,3 @@ for i=1:n
     plot([0 s_l*cos(a_l(i)) s_l*cos(a_l(i))+t_l*cos(b_l(i))], [0   s_l*sin(a_l(i)) s_l*sin(a_l(i))+t_l*sin(b_l(i))])
 end
 axis('equal')
-

@@ -2,8 +2,7 @@ function [s,t, alpha0, beta0, p2] = calc_length(p2, p3, d)
 
     % load parameters
     load_param;
-    % d, st
-    
+
     % calculate lenths and initial angles
     syms a b p2x bp
     ss = sqrt(p2x^2 + p2(2)^2);
