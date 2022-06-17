@@ -5,7 +5,7 @@ clc
 load_param
 
 %% Decision variables
-nd = 2;
+nd = 12;
 max_v = 0.3;
 min_v = 0.01;
 p2y_r = linspace(min_v,max_v,nd);
@@ -46,17 +46,18 @@ parfor i1=1:nd
                 delta_r = abs(a_r(2:end) - a_r(1));
                 delta_l = abs(a_l(2:end) - a_l(1));
                 
-                c(i1,i2,i3,i4) = obj_func(delta_r, delta_l,'right');
+%                 c(i1,i2,i3,i4) = obj_func(delta_r, delta_l,'right');
+                c(i1,i2,i3,i4) = obj_func_af(delta_r, delta_l);
             end
         end
     end
     disp(i1)
 end
 toc
-save('data_contour_2')
+save('data_contour_3_af')
 
 %% plot contour data
-load('data_contour_2.mat')
+load('data_contour_3_af.mat')
 
 figure(1); clf; hold on;
 subplot(2,2,1)

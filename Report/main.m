@@ -37,6 +37,7 @@ delta_r = abs(a_r(2:end) - a_r(1));
 delta_l = abs(a_l(2:end) - a_l(1));
 
 c = obj_func(delta_r, delta_l, 'right');
+c_af = obj_func_af(delta_r, delta_l);
 
 figure(1); clf;
 subplot(1,2,2); hold on;
