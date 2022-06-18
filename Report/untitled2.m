@@ -11,7 +11,10 @@ nvars = 4;
 lb    = min_v*ones(nvars,1);
 ub    = max_v*ones(nvars,1);
 
-options = optimoptions('particleswarm', 'UseParallel',true, Display='iter');
+options = optimoptions('particleswarm', ...
+    'UseParallel',true, ...
+    Display='iter', ...
+    PlotFcn=@plot_particle);
 fun = @(x) main(x); tic
 [x,fval,exitflag,output] = particleswarm(fun, nvars, lb, ub, options); toc
 
@@ -43,6 +46,6 @@ function c = main(x) %p2y_r, p2y_l, p3y_r, p3y_l)
     delta_r = abs(a_r(2:end) - a_r(1));
     delta_l = abs(a_l(2:end) - a_l(1));
     
-    c = obj_func(delta_r, delta_l, 'right');
-%     c = obj_func_af(delta_r, delta_l);
+%     c = obj_func(delta_r, delta_l, 'right');
+    c = obj_func_af(delta_r, delta_l);
 end

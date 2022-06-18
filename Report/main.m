@@ -10,7 +10,7 @@ load_param
 % 
 % p3y_r = 0.005;
 % p3y_l = 0.005;
-load('data_og_objective_particle_5.mat')
+load('data_ackerman_particle_8.mat')
 p2y_r = x(1); p2y_l = x(2); p3y_r = x(3); p3y_l = x(4);
 
 %% calculate beam lengts
