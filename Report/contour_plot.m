@@ -51,13 +51,14 @@ parfor i1=1:nd
             end
         end
     end
+    disp(clock)
     disp(i1)
 end
 toc
-save('data_contour_3_af')
+save('data_contour_5_af')
 
 %% plot contour data
-load('data_contour_3_af.mat')
+load('data_contour_5_af.mat')
 
 figure(1); clf; hold on;
 subplot(2,2,1)
