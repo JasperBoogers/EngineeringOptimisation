@@ -9,7 +9,7 @@ function [a_l, a_r, b_l, b_r] = calc_steering_angles(x, n)
     p2l = [nan, p2y_l];
     p3l = [p3x_l, p3y_l];
     
-    % linearly spaced steering inputs, filter out 0 and 1
+    % linearly spaced steering inputs, optionally filter out 0 and 1
     st_f = linspace(0,1,n+2);
     % st_f = st_f(2:end-1);
     [s_r, t_r, a0_r, b0_r, p2r] = calc_length(p2r, p3r, d_r_rt);
