@@ -13,7 +13,9 @@ function [s,t, alpha0, beta0, p2] = calc_length(p2, p3, d)
         eq2 = ss*sin(a) + ts*sin(b) - p3(2);
         eq3 = ss*cos(a-d) + ts*cos(bp) - p3(1) - st; %dit minnetje is heel gaar
         eq4 = ss*sin(a-d) + ts*sin(bp) - p3(2);
-    S = vpasolve([eq1,eq2,eq3,eq4],[a, b, p2x, bp]);
+
+    range = [0 2*pi; 0 2*pi; 0 0.3; nan nan];
+    S = vpasolve([eq1,eq2,eq3,eq4],[a, b, p2x, bp]); %, range);
 
     alpha0 = double(mod(S.a, 2*pi));
     beta0  = double(mod(S.b, 2*pi));

@@ -1,6 +1,6 @@
 %% init
+close all
 clear
-clf
 clc
 load_param
 
@@ -19,6 +19,8 @@ options = optimoptions('particleswarm', ...
 tic
 [x,fval,exitflag,output] = particleswarm(@(x) fun(x), nvars, lb, ub, options); 
 toc
+
+plot_config(x);
 
 function c = fun(x)
     % calculate intermediate steering angles

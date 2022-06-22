@@ -1,8 +1,9 @@
 function stop = plot_particle(optimValues, ~)
     x = optimValues.bestx;
     load_param;
-    
-    [a_l, a_r, ~, ~] = calc_steering_angles(x, 5);
+    n = 5;
+
+    [a_l, a_r, ~, ~] = calc_steering_angles(x, n);
     
     delta_r = abs(a_r(2:end) - a_r(1));
     delta_l = abs(a_l(2:end) - a_l(1));
@@ -16,7 +17,9 @@ function stop = plot_particle(optimValues, ~)
     % ideal ackerman angles with given radius
     d_r_A = atan(WB./(r+TW/2));
     d_l_A = atan((WB-dWB)./(r-TW/2));
-    
+
+    plot_config(x);
+
     figure(2);clf;hold on;
     plot(rad2deg(delta_l), rad2deg(delta_l - delta_r))
     plot(rad2deg(d_l_A), rad2deg(d_l_A - d_r_A))
