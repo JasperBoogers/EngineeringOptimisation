@@ -2,7 +2,7 @@
 clear
 clc
 
-load('Data/data_ackerman_particle_8.mat')
+load('Data/data_ackerman_particle_9.mat')
 load_param;
 
 %%
@@ -29,8 +29,8 @@ st_f = st_f(2:end);
     a_l = [a0_l, zeros(1,n)];
     b_l = [b0_l, zeros(1,n)];
     for i = 1:n
-        [a_r(i+1), b_r(i+1)] = calc_angles(s_r,t_r, a_r(i), b_r(i), p2r, p3r, st_f(i));
-        [a_l(i+1), b_l(i+1)] = calc_angles(s_l,t_l, a_l(i), b_l(i), p2l, p3l, -st_f(i));
+        [a_r(i+1), b_r(i+1)] = calc_angles(s_r,t_r, a_r(i), b_r(i), p3r, st_f(i));
+        [a_l(i+1), b_l(i+1)] = calc_angles(s_l,t_l, a_l(i), b_l(i), p3l, -st_f(i));
     end
 
 delta_r = a_r(2:end) - a_r(1);
