@@ -1,10 +1,12 @@
 function [] = plot_config(x)
     load_param;
+    
+    % unpack x into coordinates
     p2y_r = x(1); p2y_l = x(2); p3y_r = x(3); p3y_l = x(4);
-
+    
+    % set coordinates
     p2r = [nan, p2y_r];
     p3r = [p3x_r, p3y_r];
-
     p2l = [nan, p2y_l];
     p3l = [p3x_l, p3y_l];
 
