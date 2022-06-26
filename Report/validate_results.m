@@ -2,7 +2,7 @@
 clear
 clc
 
-load('Data/data_ackerman_particle_8.mat')
+load('Data/data_ackerman_particle_9.mat')
 load_param;
 
 %%
@@ -49,7 +49,7 @@ d_l_A = atan((WB-dWB)./(r-TW/2));
 
 figure(2);clf;hold on;
 plot(rad2deg(delta_l), rad2deg(delta_l - delta_r))
-plot(rad2deg(d_l_A), rad2deg(d_l_A - d_r_A))
+plot(rad2deg(d_l_A), rad2deg(d_l_A - d_r_A), '--')
 title('Ackerman factor')
 xlabel('Steer angle inside wheel \delta_i legt wheel (deg)')
 ylabel('Differential steer angle \Delta\delta = \delta_i - \delta_o (deg)')
