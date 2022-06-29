@@ -7,7 +7,7 @@ load_param;
 
 %%
 
-n=10;
+n=5;
 
 % unpack x into coordinates
 p2y_r = x(1); p2y_l = x(2); p3y_r = x(3); p3y_l = x(4);
@@ -44,8 +44,8 @@ r_l = (WB-dWB)./tan(delta_l) - TW/2;
 r = (r_r+r_l)/2;
 
 % ideal ackerman angles with given radius
-d_r_A = atan(WB./(r+TW/2));
-d_l_A = atan((WB-dWB)./(r-TW/2));
+d_r_A = atan(WB./(r-TW/2));
+d_l_A = atan((WB-dWB)./(r+TW/2));
 
 figure(2);clf;hold on;
 plot(rad2deg(delta_l), rad2deg(delta_l - delta_r))

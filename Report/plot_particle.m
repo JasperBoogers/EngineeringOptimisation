@@ -15,8 +15,8 @@ function stop = plot_particle(optimValues, ~)
     r = (r_r+r_l)/2; % average radius
     
     % ideal ackerman angles with given radius
-    d_r_A = atan(WB./(r+TW/2));
-    d_l_A = atan((WB-dWB)./(r-TW/2));
+    d_r_A = atan(WB./(r-TW/2));
+    d_l_A = atan((WB-dWB)./(r+TW/2));
 
     plot_config(x);
 

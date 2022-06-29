@@ -6,8 +6,8 @@ r = 7.5;        % [m], turning radius
 % x_t = 0.05;   % [m], rack-and-pinion displacement
 
 st     = 0.05;   % [m], maximum rack and pinion extension
-% p3x_r  = 0.3;    % [m], rack and pinion attachment point x, rigth
-% p3x_l  = 0.3;    % [m], rack and pinion attachment point x, left
+p3x_r  = 0.3;    % [m], rack and pinion attachment point x, rigth
+p3x_l  = 0.3;    % [m], rack and pinion attachment point x, left
 
 %% function of turning radius
 
@@ -17,4 +17,4 @@ d_l_rt = atan((WB-dWB)/(r + TW/2));     % [deg], steeringwheel input left wheel,
 d_r_rt = atan((WB)/(r - TW/2));         % [deg], steeringwheel input right wheel, right turn
 
 
-opt = optimset('Display','off');
+opt = optimset('Display','off','TolFun',1e-6);
