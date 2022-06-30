@@ -10,8 +10,8 @@ p3x_r  = 0.3;    % [m], rack and pinion attachment point x, right
 p3x_l  = 0.3;    % [m], rack and pinion attachment point x, left
 
 % for simplified problem
-% p3y_r = 0.05;
-% p3y_l = 0.05;
+% p3y_r = 0.15;
+% p3y_l = 0.15;
 
 %% function of turning radius
 
