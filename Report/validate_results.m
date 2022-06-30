@@ -2,8 +2,9 @@
 clear
 clc
 
-load('Data/data_ackerman_particle_9.mat')
-load_param;
+load('Data/data_ackerman_particle_10.mat')
+% load('Data/data_simplified_particle_1.mat')
+% load_param;
 
 %%
 
@@ -50,10 +51,10 @@ d_l_A = atan((WB-dWB)./(r+TW/2));
 figure(2);clf;hold on;
 plot(rad2deg(delta_l), rad2deg(delta_l - delta_r))
 plot(rad2deg(d_l_A), rad2deg(d_l_A - d_r_A), '--')
-title('Ackerman factor')
-xlabel('Steer angle inside wheel \delta_i legt wheel (deg)')
-ylabel('Differential steer angle \Delta\delta = \delta_i - \delta_o (deg)')
-legend('Actual', 'Ideal')
+% title('Ackerman factor')
+xlabel('Steer angle inside wheel $$\delta_i$$ legt wheel (deg)', Interpreter='latex')
+ylabel('Differential steer angle $$\Delta\delta = \delta_i - \delta_o$$ (deg)', Interpreter='latex')
+legend('Actual', 'Ideal', Interpreter='latex')
 
 c = obj_func(delta_r, delta_l, 'right');
 c_af = obj_func_af(delta_r, delta_l);
@@ -64,23 +65,31 @@ c_af = obj_func_af(delta_r, delta_l);
 
 figure(1); clf;
 subplot(1,2,2); hold on;
-title('Right wheel');
-plot(-[0 p2r(1) p3r(1)], [0 p2r(2) p3r(2)])
+title('Right wheel',  Interpreter='latex');
+plot(-[0 p2r(1) p3r(1)], [0 p2r(2) p3r(2)], DisplayName='$\delta$ = 0.00')
 for i = 2:n+1
-    plot(-[0 s_r*cos(a_r(i)) s_r*cos(a_r(i))+t_r*cos(b_r(i))], [0   s_r*sin(a_r(i)) s_r*sin(a_r(i))+t_r*sin(b_r(i))])
+    plot(-[0 s_r*cos(a_r(i)) s_r*cos(a_r(i))+t_r*cos(b_r(i))], [0   s_r*sin(a_r(i)) s_r*sin(a_r(i))+t_r*sin(b_r(i))], ...
+        'DisplayName', sprintf('$\\delta$ = %0.3g', rad2deg(delta_r(i-1))))
 end
+xlabel('x [m]', Interpreter='latex');
+ylabel('y [m]', Interpreter='latex');
 axis('equal')
-legend()
+hr = legend();
+set(hr, Interpreter='latex')
 
 
 subplot(1,2,1); hold on;
-title('Left wheel')
+title('Left wheel',  Interpreter='latex')
 
-plot([0 p2l(1) p3l(1)], [0 p2l(2) p3l(2)])
+plot([0 p2l(1) p3l(1)], [0 p2l(2) p3l(2)], DisplayName='$\delta$ = 0.00')
 for i=2:n+1
-    plot([0 s_l*cos(a_l(i)) s_l*cos(a_l(i))+t_l*cos(b_l(i))], [0   s_l*sin(a_l(i)) s_l*sin(a_l(i))+t_l*sin(b_l(i))])
+    plot([0 s_l*cos(a_l(i)) s_l*cos(a_l(i))+t_l*cos(b_l(i))], [0   s_l*sin(a_l(i)) s_l*sin(a_l(i))+t_l*sin(b_l(i))], ...
+     'DisplayName', sprintf('$\\delta$ = %0.3g', rad2deg(delta_l(i-1))))
 end
+xlabel('x [m]', Interpreter='latex');
+ylabel('y [m]', Interpreter='latex');
 axis('equal')
-legend()
+hl = legend();
+set(hl, Interpreter='latex')
 
 % function plot_ackerman_factor()

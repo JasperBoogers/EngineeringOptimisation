@@ -6,8 +6,12 @@ r = 7.5;        % [m], turning radius
 % x_t = 0.05;   % [m], rack-and-pinion displacement
 
 st     = 0.05;   % [m], maximum rack and pinion extension
-p3x_r  = 0.3;    % [m], rack and pinion attachment point x, rigth
+p3x_r  = 0.3;    % [m], rack and pinion attachment point x, right
 p3x_l  = 0.3;    % [m], rack and pinion attachment point x, left
+
+% for simplified problem
+% p3y_r = 0.05;
+% p3y_l = 0.05;
 
 %% function of turning radius
 
