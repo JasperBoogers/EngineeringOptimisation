@@ -2,9 +2,9 @@
 clear
 clc
 
-% load('Data/data_full_particle_1.mat')
-load('Data/data_simplified_particle_1.mat')
-% load_param;
+load('Data/data_full_particle_1.mat')
+% load('Data/data_simplified_particle_2.mat')
+load_param;
 
 %%
 
@@ -54,7 +54,7 @@ plot(rad2deg(d_l_A), rad2deg(d_l_A - d_r_A), '--')
 xlabel('Steer angle inside wheel $$\delta_i$$ (deg)', Interpreter='latex')
 ylabel('Differential steer angle $$\Delta\delta = \delta_i - \delta_o$$ (deg)', Interpreter='latex')
 legend('Actual', 'Ideal', Interpreter='latex')
-saveas(gcf, 'Pictures\Differential_simplified.eps', 'epsc')
+saveas(gcf, 'Pictures\Differential_full.eps', 'epsc')
 
 c = obj_func(delta_r, delta_l, 'right');
 c_af = obj_func_af(delta_r, delta_l);
@@ -91,10 +91,10 @@ ylabel('y [m]', Interpreter='latex');
 axis('equal')
 hl = legend();
 set(hl, Interpreter='latex')
-saveas(gcf, 'Pictures/ST_inputs_simplified.eps', 'epsc');
+saveas(gcf, 'Pictures/ST_inputs_full.eps', 'epsc');
 
 figure(3);clf;hold on;
-plot(linspace(0,100,n), AF)
+plot(linspace(20,100,n), AF)
 xlabel('Steer input $\\st_f$ (\%)', Interpreter='latex')
 ylabel('Ackerman factor (-)', Interpreter='latex')
-saveas(gcf, 'Pictures/AF_simplified.eps', 'epsc');
+saveas(gcf, 'Pictures/AF_full.eps', 'epsc');
